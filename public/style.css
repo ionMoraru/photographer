@@ -1,0 +1,48 @@
+#initial-loader {
+    position: absolute; 
+    width: 100vw; 
+    height: 100vh; 
+    background: black;
+    z-index: 3;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.initial-loader-animation {
+    background-color: black;
+    -webkit-animation-name: i-loader; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: i-loader;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+/* Standard syntax */
+@keyframes i-loader {
+    from {background-color: black;}
+    to {background-color: transparent;}
+}
+
+#logo {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+.initial-logo {
+    /* bottom: initial;
+    right: initial; */
+    -webkit-animation-name: i-logo; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: i-logo;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes i-logo {
+    from {top: 40%;
+        left: 40%;}
+    to {top: 80%;
+        left: 80%;}
+}
+
