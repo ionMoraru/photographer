@@ -3,22 +3,21 @@ import { Switch, Route } from 'react-router-dom';
 
 import api from './api';
 
-import Collection from './components/containers/Collection';
-import Home from './components/containers/Home';
+import Collection from './containers/Collection';
+import Home from './containers/Home';
 
 const loader = document.getElementById('initial-loader')
-const logo = document.getElementById('logo')
+// const logo = document.getElementById('logo')
 
 export default class Routes extends Component {
     state = {
         collections: []
     } 
     componentDidMount = async () => {
-        console.log(loader, logo);
         setTimeout(() => {
             loader.classList.add("initial-loader-animation");
-            logo.classList.add("initial-logo");
-        }, 5000);
+            // logo.classList.add("initial-logo");
+        }, 1000);
 
         try {
             const response = await api.images.getCollectionsName();

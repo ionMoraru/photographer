@@ -4,9 +4,7 @@
     height: 100vh; 
     background: black;
     z-index: 3;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    overflow: hidden;
 }
 
 .initial-loader-animation {
@@ -30,8 +28,6 @@
     left: 40%;
 }
 .initial-logo {
-    /* bottom: initial;
-    right: initial; */
     -webkit-animation-name: i-logo; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
     animation-name: i-logo;

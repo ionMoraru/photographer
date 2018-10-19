@@ -1,16 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
 import { BrowserRouter as Router} from 'react-router-dom';
+import { IntlProvider } from "react-intl";
+import { addLocaleData } from "react-intl";
+import fr from "react-intl/locale-data/fr";
+import ru from "react-intl/locale-data/ru";
+import ro from "react-intl/locale-data/ro";
 
 import * as serviceWorker from './serviceWorker';
 
+import App from './containers/App';
+import messages from './messages';
+
 import './index.css';
 
+
+addLocaleData(fr);
+addLocaleData(ru);
+addLocaleData(ro);
+
+let locale = navigator.language.substring(0, 2);
+if (locale === 'en') {
+    locale = 'fr'
+}
+
 ReactDOM.render(
-    <Router>
-        <Routes />
-    </Router>, document.getElementById('root'));
+    <IntlProvider locale={locale} messages={messages[locale]}>
+        <Router>
+            <App />
+        </Router>
+    </IntlProvider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

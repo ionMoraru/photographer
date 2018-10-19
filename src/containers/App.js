@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
-import Slider from '../slider/Slider';
+import LeftMenu from '../components/menu/LeftMenu';
+import Routes from '../routes';
 
 export default class Home extends Component {
      
   render() {
     return (
         <div>
-            <Slider />
+            <LeftMenu />
+            <Routes />
         </div>
     )
   }
