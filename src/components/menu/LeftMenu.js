@@ -3,13 +3,18 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames';
 import { FormattedMessage } from "react-intl";
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
 
 import './LeftMenu.scss'
 
-export default class LeftMenu extends Component {
-  // static propTypes = {
-  //   prop: PropTypes
-  // }
+class LeftMenu extends Component {
+  static propTypes = {
+    collections: PropTypes.array.isRequired,
+    setLocale: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+      listen: PropTypes.func.isRequired
+    })
+  };
 
   state = {
       showLeftMenu: false,
@@ -27,8 +32,23 @@ export default class LeftMenu extends Component {
       })
   }
 
+  onChangeLang = (lang) => {
+    this.props.setLocale(lang)
+    }
+
+  componentWillMount() {
+    this.props.history.listen(() => {
+      this.setState({ showLeftMenu: !this.state.showLeftMenu })
+    });
+  }
+
   render() {
     const { showLeftMenu, showSubmenu } = this.state;
+    const { collections } = this.props;
+    const submenu = collections.map((item, i) => {
+      return <li key={i}><Link to={`/${item.path}`}>{item.name}</Link></li>
+    });
+
     return (
       <nav className={classNames({ 'open': showLeftMenu }, "p-container__lmenu")}>
         <i
@@ -42,7 +62,7 @@ export default class LeftMenu extends Component {
               id="nav.collections"
               defaultMessage="Collections"/>
               <ul className={classNames({ 'open': showSubmenu }, "lmenu__submenu")}>
-                <li><Link to=''>YEP</Link></li>
+                {submenu}
               </ul>
           </li>
           <li>
@@ -66,8 +86,15 @@ export default class LeftMenu extends Component {
                 defaultMessage="Contact"/>
             </Link>
           </li>
+          <li style={{marginTop: "64px"}}>
+            <span onClick={() => this.onChangeLang('fr')} style={{paddingRight: ".5vw"}}>fr</span><span>|</span>
+            <span onClick={() => this.onChangeLang('ro')} style={{padding: "0 .5vw"}}>ro</span><span>|</span>
+            <span onClick={() => this.onChangeLang('ru')} style={{paddingLeft: ".5vw"}}>ru</span>
+          </li>
         </ul>
       </nav>
     )
   }
 }
+
+export default withRouter(LeftMenu);
