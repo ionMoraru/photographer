@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 import { FormattedMessage } from "react-intl";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-import './LeftMenu.scss'
+import "./LeftMenu.scss";
 
 class LeftMenu extends Component {
   static propTypes = {
@@ -17,83 +17,118 @@ class LeftMenu extends Component {
   };
 
   state = {
-      showLeftMenu: false,
-      showSubmenu: false
-  }
+    showLeftMenu: false,
+    showSubmenu: false
+  };
 
   onToogleLMenu = () => {
-      this.setState({
-          showLeftMenu: !this.state.showLeftMenu
-      })
-  }
+    this.setState({
+      showLeftMenu: !this.state.showLeftMenu
+    });
+  };
   onToogleLSubmenu = () => {
-      this.setState({
-        showSubmenu: !this.state.showSubmenu
-      })
-  }
+    this.setState({
+      showSubmenu: !this.state.showSubmenu
+    });
+  };
 
-  onChangeLang = (lang) => {
-    this.props.setLocale(lang)
-    }
+  onChangeLang = lang => {
+    this.props.setLocale(lang);
+  };
 
   componentWillMount() {
     this.props.history.listen(() => {
-      this.setState({ showLeftMenu: !this.state.showLeftMenu })
+      this.state.showLeftMenu && this.setState({ showLeftMenu: !this.state.showLeftMenu });
     });
   }
+
+  componentDidMount = () => {
+    setTimeout(() => {
+      this.setState({ showLeftMenu: true });
+    }, 2000);
+    setTimeout(() => {
+      this.setState({ showLeftMenu: false });
+    }, 4000);
+  }
+  
 
   render() {
     const { showLeftMenu, showSubmenu } = this.state;
     const { collections } = this.props;
     const submenu = collections.map((item, i) => {
-      return <li key={i}><Link to={`/${item.path}`}>{item.name}</Link></li>
+      return (
+        <li key={i}>
+          <Link to={`/${item.path}`}>{item.name}</Link>
+        </li>
+      );
     });
 
     return (
-      <nav className={classNames({ 'open': showLeftMenu }, "p-container__lmenu")}>
+      <nav className={classNames({ open: showLeftMenu }, "p-container__lmenu")}>
         <i
-          className="lmenu--burger material-icons" 
-          onClick={this.onToogleLMenu}>
-          {!showLeftMenu ? 'menu': 'close'}
+          className="lmenu--burger material-icons"
+          onClick={this.onToogleLMenu}
+        >
+          {!showLeftMenu ? "menu" : "close"}
         </i>
-        <ul className={classNames({ 'open': showLeftMenu }, "lmenu__items-container")}>
+        <ul
+          className={classNames(
+            { open: showLeftMenu },
+            "lmenu__items-container"
+          )}
+        >
           <li onClick={this.onToogleLSubmenu}>
-            <FormattedMessage 
+            <FormattedMessage
               id="nav.collections"
-              defaultMessage="Collections"/>
-              <ul className={classNames({ 'open': showSubmenu }, "lmenu__submenu")}>
-                {submenu}
-              </ul>
+              defaultMessage="Collections"
+            />
+            <ul className={classNames({ open: showSubmenu }, "lmenu__submenu")}>
+              {submenu}
+            </ul>
           </li>
           <li>
-            <Link to=''>
-              <FormattedMessage 
-                id="nav.services"
-                defaultMessage="Services"/>
+            <Link to="">
+              <FormattedMessage id="nav.services" defaultMessage="Services" />
             </Link>
           </li>
           <li>
             <Link to="">
-              <FormattedMessage 
+              <FormattedMessage
                 id="nav.about"
-                defaultMessage="À propos de moi"/>
+                defaultMessage="À propos de moi"
+              />
             </Link>
           </li>
           <li>
             <Link to="">
-              <FormattedMessage 
-                id="nav.contact"
-                defaultMessage="Contact"/>
+              <FormattedMessage id="nav.contact" defaultMessage="Contact" />
             </Link>
           </li>
-          <li style={{marginTop: "64px"}}>
-            <span onClick={() => this.onChangeLang('fr')} style={{paddingRight: ".5vw"}}>fr</span><span>|</span>
-            <span onClick={() => this.onChangeLang('ro')} style={{padding: "0 .5vw"}}>ro</span><span>|</span>
-            <span onClick={() => this.onChangeLang('ru')} style={{paddingLeft: ".5vw"}}>ru</span>
+          <li style={{ marginTop: "64px" }}>
+            <span
+              onClick={() => this.onChangeLang("fr")}
+              style={{ paddingRight: ".5vw" }}
+            >
+              fr
+            </span>
+            <span>|</span>
+            <span
+              onClick={() => this.onChangeLang("ro")}
+              style={{ padding: "0 .5vw" }}
+            >
+              ro
+            </span>
+            <span>|</span>
+            <span
+              onClick={() => this.onChangeLang("ru")}
+              style={{ paddingLeft: ".5vw" }}
+            >
+              ru
+            </span>
           </li>
         </ul>
       </nav>
-    )
+    );
   }
 }
 

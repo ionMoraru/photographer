@@ -22,23 +22,33 @@
     to {background-color: transparent;}
 }
 
-// #logo {
-//     position: absolute;
-//     top: 40%;
-//     left: 40%;
-// }
-// .initial-logo {
-//     -webkit-animation-name: i-logo; /* Safari 4.0 - 8.0 */
-//     -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-//     animation-name: i-logo;
-//     animation-duration: 4s;
-//     animation-fill-mode: forwards;
-// }
+.logo {
+    background: transparent url('/logo.png') no-repeat center top;
+    background-position: center center;
+    background-size: 900px;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    opacity: .5;
+    cursor: initial;
+    pointer-events: none;
+}
+.logo.transitions {
+    background-size: 450px;
+    width: 160px;
+    height: 106px;
+    opacity: .7;
+    margin-bottom: 30px;
+    transition: background-size 1.5s,width 1.5s,height 1.5s,bottom 2s,opacity 2s, margin 2s;
+    pointer-events: all;
+    cursor: pointer;
+}
 
-// @keyframes i-logo {
-//     from {top: 40%;
-//         left: 40%;}
-//     to {top: 80%;
-//         left: 80%;}
-// }
-
+.logo.transitions:hover {
+    opacity: 1;
+}

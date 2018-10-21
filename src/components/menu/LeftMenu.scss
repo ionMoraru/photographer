@@ -41,7 +41,7 @@
             transition: color 0.2s;
             text-decoration: none;
             color: #FFF;
-            text-transform: lowercase;
+            text-transform: capitalize;
         }
 
         .lmenu__submenu > li > a:hover {
@@ -80,9 +80,9 @@
     .lmenu--burger {
         position: absolute;
         top: 23px;
-        right: 23px;
+        right: 16px;
         color: #fff;
-        opacity: .7;
+        opacity: .5;
         transition: opacity 1s
     }
     

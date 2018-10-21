@@ -24,10 +24,8 @@ class App extends Component {
   };
   componentDidMount = async () => {
     let nLanguage = navigator.language.substring(0, 2);
-    if (nLanguage !== 'fr' ||
-        nLanguage !== 'ro' ||
-        nLanguage !== 'ru') {
-            this.setState({ lang: 'fr' });
+    if (nLanguage !== "fr" || nLanguage !== "ro" || nLanguage !== "ru") {
+      this.setState({ lang: "fr" });
     }
 
     try {
@@ -39,7 +37,6 @@ class App extends Component {
   };
 
   setLocale = lang => {
-
     if (lang !== undefined) {
       this.setState({ lang });
       localStorage.pLang = lang;
@@ -50,7 +47,7 @@ class App extends Component {
     const { collections, lang } = this.state;
     const theDate = new Date().getFullYear();
     const locale = localStorage.pLang || lang;
-    
+
     return (
       <IntlProvider locale={locale} messages={messages[locale]}>
         <div>

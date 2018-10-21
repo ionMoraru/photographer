@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './containers/App';
 
-import './index.scss';
+// import './index.scss';
 
 
 
@@ -25,10 +25,10 @@ document.oncontextmenu = function() {
     return false;
 }
 
-document.onkeydown = (event) => {
-    if (event.keyCode === 123) { // Prevent F12
-        return false;
-    } else if (event.ctrlKey && event.shiftKey && event.keyCode === 73) { // Prevent Ctrl+Shift+I        
-        return false;
-    }
-}
+// document.onkeydown = (event) => {
+//     if (event.keyCode === 123) { // Prevent F12
+//         return false;
+//     } else if (event.ctrlKey && event.shiftKey && event.keyCode === 73) { // Prevent Ctrl+Shift+I        
+//         return false;
+//     }
+// }

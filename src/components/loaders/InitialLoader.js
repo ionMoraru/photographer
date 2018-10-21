@@ -1,13 +1,16 @@
 import React from 'react'
 import classNames from 'classnames';
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 import './InitialLoader.scss';
 
 export default function InitialLoader({ animate }) {
   return (
     <div className={classNames({'animate': animate}, "initial-loader")}  >
-        {/* <img id="logo" src="./slack.svg" alt="" height="200px" width="200px"> */}
+        <Link to="/">
+          <div className={classNames({'transitions': animate}, "logo")} ></div>
+        </Link>
     </div>
   )
 }
