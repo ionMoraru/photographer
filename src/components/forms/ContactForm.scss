@@ -1,0 +1,50 @@
+.cc--form {
+    width: 80vw;
+    height: 80vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ecebe2;
+
+    form {
+        width: 30vw;
+    }
+
+    label {
+        padding: 0 0 10px;
+        text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
+    margin: 0;
+    font-size: 12px;
+    }
+
+    input, textarea {
+        display: block;
+        width: 100%;
+        background: transparent;
+        border: 1px solid #ecebe2;
+        color: #ecebe2;
+        letter-spacing: 1px;
+        transition: all .5s ease;
+        font-size: 14px;
+        padding: 12px;
+    }
+    input.error, textarea.error {
+        border: 1px solid #c53636;
+        transition: all .5s ease;
+    }
+
+    button {
+        margin-top: 30px;
+        border: 1px solid #ecebe2;
+        text-transform: uppercase;
+        font-size: calc(8px + .25vw);
+        letter-spacing: 2px;
+        transition: all .8s ease;
+        background: none;
+        padding: 20px 40px;
+    }
+}

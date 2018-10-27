@@ -91,16 +91,16 @@ class LeftMenu extends Component {
               <FormattedMessage id="nav.services" defaultMessage="Services" />
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="">
               <FormattedMessage
                 id="nav.about"
                 defaultMessage="À propos de moi"
               />
             </Link>
-          </li>
+          </li> */}
           <li>
-            <Link to="">
+            <Link to="/contact">
               <FormattedMessage id="nav.contact" defaultMessage="Contact" />
             </Link>
           </li>

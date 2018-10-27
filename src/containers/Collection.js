@@ -34,6 +34,8 @@ export default class App extends Component {
   };
 
   componentWillUnmount = () => {
+    console.log('unmount');
+    
     this.setState({ animate: false });
   };
 

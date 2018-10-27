@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import Collection from './containers/Collection';
 import Home from './containers/Home';
+import Contact from './containers/Contact';
 
 
 const Routes = ({ collections }) => {
@@ -14,6 +15,8 @@ const Routes = ({ collections }) => {
             {collections.length > 0 && collections.map((item, i) => {
                 return <Route path={`/collections/${item.name}`} render={(props) => <Collection {...props} collectionName={item.name} />} key={i}/>
             })}
+            <Route path='/contact' component={Contact}/>
+
             
         </Switch>
     )
