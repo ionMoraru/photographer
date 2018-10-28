@@ -15,6 +15,8 @@ export default {
       "contact.number": "+33 (7) 53 43 87 63",
       "contact.email.contact": "email",
       "contact.email.adress": "ion.01panainte@gmail.com",
+      "feedback.success": "Merci pour votre message, nous vous contacterons bientôt.",
+      "feedback.error": "Une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer ultérieurement ou essayer de me contacter par mail ou téléphone."
     },
     ru: {
       "nav.collections": "Kоллекции",
@@ -32,6 +34,8 @@ export default {
       "contact.number": "+33 (7) 53 43 87 63",
       "contact.email.contact": "электронная почта",
       "contact.email.adress": "ion.01panainte@gmail.com",
+      "feedback.success": "Благодарим вас за сообщение, мы свяжемся с вами в ближайшее время.",
+      "feedback.error": "При отправке запроса произошла ошибка. Повторите попытку позже или попробуйте связаться со мной по электронной почте или по телефону."
     },
     ro: {
       "nav.collections": "Colecții",
@@ -49,5 +53,7 @@ export default {
       "contact.number": "+33 (7) 53 43 87 63",
       "contact.email.contact": "email",
       "contact.email.adress": "ion.01panainte@gmail.com",
+      "feedback.success": "Vă mulțumim pentru mesajul dvs., vă vom contacta în curând.",
+      "feedback.error": "A apărut o eroare la trimiterea solicitării dvs. Încercați din nou mai târziu sau încercați să mă contactați prin e-mail sau telefon."
     }
   };

@@ -38,6 +38,55 @@
             font-style: italic;
             letter-spacing: 0;
         }
+
+        .feedback-message {
+            font-family: Bell Italic;
+            font-style: italic;
+            color: #b9af96;
+            font-size: 1.125rem;
+            position: relative;
+        }
+
+        i {
+            font-size: 1.125rem;
+            top: 3px;
+            position: relative;
+            margin-right: 5px;
+        }
+        
+        .feedback-message.fm-animate {
+            top: 0;
+            transition: all 2s cubic-bezier(.5,0,.1,1);
+        }
+        .feedback-enter {
+            opacity: 0.01;
+          }
+          
+        .feedback-enter.feedback-enter-active {
+            opacity: 1;
+            transition: all 2s cubic-bezier(.5,0,.1,1);
+        }
+        
+        .feedback-leave {
+            opacity: 1;
+        }
+        
+        .feedback-leave.feedback-leave-active {
+            opacity: 0.01;
+            transition: all 2s cubic-bezier(.5,0,.1,1);
+        }
+
+        .error {
+            color: #c53636;
+        }
+
+        > span {
+            color: #c53636;
+            padding: 0 0 5px 0;
+            font-size: .8rem;
+            display: block;
+            width: 40vw;
+        }
     }
 
     label {
@@ -77,12 +126,6 @@
         transition: all .5s ease;
     }
 
-    > span {
-        color: #c53636;
-        padding: 0 0 5px 0;
-        font-size: .8rem;
-        display: block;
-    }
 
     button {
         margin-top: 30px;
@@ -106,3 +149,4 @@
         transition: all .8s ease;
     }
 }
+
