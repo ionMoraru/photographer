@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import isEmail from 'validator/lib/isEmail';
+import classNames from 'classnames';
+import { FormattedMessage } from "react-intl";
+
 import api from '../../api';
 
 import "./ContactForm.scss";
@@ -8,7 +10,7 @@ import "./ContactForm.scss";
 export default class ContactForm extends Component {
   state = {
     message: {
-      name: "",
+      subject: "",
       email: "",
       body: ""
     },
@@ -24,7 +26,6 @@ export default class ContactForm extends Component {
   onSubmit = async e => {
     e.preventDefault();
     const { message } = this.state;
-    console.log(message);
     
     const errors = this.validate(message);
 
@@ -32,7 +33,7 @@ export default class ContactForm extends Component {
 
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
-
+      
       try {
           const response = await api.contact.sendEmail(message);
           console.log(response);
@@ -40,52 +41,57 @@ export default class ContactForm extends Component {
           this.setState({ loading: false });
       } catch (error) {
           console.log(error.stack); 
+          this.setState({ loading: false });
       }
-    //   this.props
-    //     .submit(this.state.data)
-    //     .catch(err =>
-    //       this.setState({ errors: err.response.data.errors, loading: false })
-    //     );
     }
   };
 
   validate = data => {
     const errors = {};
 
-    if (!isEmail(data.email)) errors.email = "Invalid email";
-    if (!data.body) errors.body = "Can't be blank";
+    if (!isEmail(data.email)) errors.email = "error.email";
+    if (!data.body || data.body.length > 10) errors.body = "error.body";
 
     return errors;
   };
 
   render() {
+    const { message, errors, loading } = this.state;
+    const { animate } = this.props;
     return (
-      <div className="cc--form">
+      <div className={classNames("cc--form", { 'fadein-left': animate })}>
         <form onSubmit={this.onSubmit}>
-          <label htmlFor="name">Votre nom</label>
+          <h1><FormattedMessage id="contact.h1" defaultMessage="Comment puis-je vous aider ?" /></h1>
+          <label htmlFor="subject"><FormattedMessage id="contact.subject" defaultMessage="Sujet" /></label>
           <input
-            name="name"
+            name="subject"
             type="text"
             maxLength="64"
             onChange={this.onChange}
+            value={message.name}
           />
           <label htmlFor="email" required>
-            Votre adresse mail
+            <FormattedMessage id="contact.email" defaultMessage="Adresse email" />
           </label>
           <input
+            className={classNames({ 'error': !!errors.email })}
             name="email"
             type="email"
             maxLength="64"
-            required
             onChange={this.onChange}
+            value={message.email}
           />
-          <label htmlFor="description">Votre description</label>
+          { !!errors.email && <span><FormattedMessage id={errors.email} defaultMessage="S'il vous plaît entrer une adresse email valide" /></span>}
+          <label htmlFor="description"><FormattedMessage id="contact.body" defaultMessage="Votre demande" /></label>
           <textarea 
-            rows="4" 
+            className={classNames({ 'error': !!errors.body })}
+            rows="6" 
             onChange={this.onChange}
-            name="body" />
-
-          <button type="submit">Submit</button>
+            name="body"
+            value={message.body}
+          />
+          { !!errors.body && <span><FormattedMessage id={errors.body} defaultMessage="S'il vous plaît entrer votre demande" /></span>}
+          <button type="submit" disabled={loading} ><FormattedMessage id="contact.button" defaultMessage="Envoyer" /></button>
         </form>
       </div>
     );

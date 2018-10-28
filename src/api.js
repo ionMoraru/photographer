@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const url = "https://agile-forest-62857.herokuapp.com";
-const url = "http://localhost:8080";
+const url = "https://agile-forest-62857.herokuapp.com";
+// const url = "http://localhost:8080";
 
 export default {
     images: {
