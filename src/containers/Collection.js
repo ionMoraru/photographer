@@ -48,12 +48,12 @@ export default class App extends Component {
         {parallax.length > 0 &&
           parallax.map(item => {
             return (
-              <div key={item.id}>
+              <div className="slide-container" key={item.id}>
                 <div
                   className="slide"
                   style={{
                     background: `url(${item.url}) no-repeat center`,
-                    backgroundSize: "cover",
+                    backgroundSize: "contain",
                     backgroundAttachment: "fixed"
                   }}
                 />
