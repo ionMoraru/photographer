@@ -12,10 +12,14 @@ export default class Contact extends Component {
   }
 
   componentDidMount = () => {
-    setTimeout(() => {
+    this.timer = setTimeout(() => {
       this.setState({ animate: true });
     }, 4000);
   };
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer);
+  }
 
   render() {
       const { animate } = this.state;

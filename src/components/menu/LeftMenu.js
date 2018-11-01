@@ -42,8 +42,22 @@ class LeftMenu extends Component {
     });
   }
 
+  handleBodyClick = (e) => {
+
+    if(this.node.contains(e.target)) {
+      return;
+    }
+
+    this.setState(prevState => ({
+      showLeftMenu: false,
+    }));
+
+  }
+
   componentDidMount = () => {
-    setTimeout(() => {
+    document.body.addEventListener('click', this.handleBodyClick);
+
+    this.timer = setTimeout(() => {
       this.setState({ showLeftMenu: true });
     }, 2000);
     setTimeout(() => {
@@ -51,6 +65,11 @@ class LeftMenu extends Component {
     }, 4000);
   }
   
+
+  componentWillUnmount = () => {
+    document.body.removeEventListener('click', this.handleBodyClick);
+    clearInterval(this.timer);
+  }
 
   render() {
     const { showLeftMenu, showSubmenu } = this.state;
@@ -64,7 +83,7 @@ class LeftMenu extends Component {
     });
 
     return (
-      <nav className={classNames({ open: showLeftMenu }, "p-container__lmenu")}>
+      <nav className={classNames({ open: showLeftMenu }, "p-container__lmenu")} ref={node => { this.node = node; }} onClick={this.handleOutsideClick} >
         <i
           className="lmenu--burger material-icons"
           onClick={this.onToogleLMenu}

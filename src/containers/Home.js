@@ -8,9 +8,14 @@ export default class Home extends Component {
     animate: false
   } 
   componentDidMount = async () => {
-      setTimeout(() => {
-        this.setState({ animate: true })
-      }, 4000);  
+    this.timer = setTimeout(() => {
+      this.setState({ animate: true })
+    }, 4000);  
+  }
+
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer);
   }
 
   render() {

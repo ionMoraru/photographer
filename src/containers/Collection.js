@@ -22,7 +22,7 @@ export default class App extends Component {
     const params = { collectionName };
     
     setTimeout(() => {
-      this.setState({ animate: true });
+      this.timer = this.setState({ animate: true });
     }, 4000);
 
     try {
@@ -33,11 +33,10 @@ export default class App extends Component {
     }
   };
 
+
   componentWillUnmount = () => {
-    console.log('unmount');
-    
-    this.setState({ animate: false });
-  };
+    clearInterval(this.timer);
+  }
 
   render() {
     const { parallax, animate } = this.state;
