@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import Collection from './containers/Collection';
 import Home from './containers/Home';
 import Contact from './containers/Contact';
+import Services from './containers/Services';
 
 
 const Routes = ({ collections }) => {
@@ -16,6 +17,7 @@ const Routes = ({ collections }) => {
                 return <Route path={`/collections/${item.name}`} render={(props) => <Collection {...props} collectionName={item.name} />} key={i}/>
             })}
             <Route path='/contact' component={Contact}/>
+            <Route path='/services' component={Services}/>
 
             
         </Switch>

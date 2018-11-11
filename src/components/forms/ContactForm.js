@@ -75,11 +75,25 @@ export default class ContactForm extends Component {
     return errors;
   };
 
+  onCloseServiceRequest = () => {
+    this.props.onCloseContact();
+    this.setState({
+      message: this.baseState,
+    });
+  }
+
   render() {
     const { message, errors, loading, feedback } = this.state;
-    const { animate } = this.props;
+    const { animate, isService } = this.props;
+
     return (
       <div className={classNames("cc--form", { "fadein-left": animate })}>
+      { isService && <i
+          className="contact-close material-icons"
+          onClick={this.onCloseServiceRequest}
+        >
+          close
+        </i>}
         <form onSubmit={this.onSubmit}>
           <ReactCSSTransitionGroup
             transitionName="feedback"

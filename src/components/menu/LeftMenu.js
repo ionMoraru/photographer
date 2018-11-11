@@ -106,7 +106,7 @@ class LeftMenu extends Component {
             </ul>
           </li>
           <li>
-            <Link to="">
+            <Link to="/services">
               <FormattedMessage id="nav.services" defaultMessage="Services" />
             </Link>
           </li>
