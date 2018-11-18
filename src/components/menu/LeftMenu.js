@@ -126,21 +126,21 @@ class LeftMenu extends Component {
           <li style={{ marginTop: "64px" }}>
             <span
               onClick={() => this.onChangeLang("fr")}
-              style={{ paddingRight: ".5vw" }}
+              style={{ paddingRight: 10 }}
             >
               fr
             </span>
             <span>|</span>
             <span
               onClick={() => this.onChangeLang("ro")}
-              style={{ padding: "0 .5vw" }}
+              style={{ padding: "0 10px" }}
             >
               ro
             </span>
             <span>|</span>
             <span
               onClick={() => this.onChangeLang("ru")}
-              style={{ paddingLeft: ".5vw" }}
+              style={{ paddingLeft: 10 }}
             >
               ru
             </span>

@@ -5,6 +5,7 @@
     background: black;
     z-index: 3;
     overflow: hidden;
+    top: 0;
 }
 
 .initial-loader.animate {
@@ -14,6 +15,9 @@
     animation-name: i-loader;
     animation-duration: 4s;
     animation-fill-mode: forwards;
+    top: -100vh;
+    transition: top .1s;
+    transition-delay: 2s;
 }
 
 /* Standard syntax */
@@ -54,3 +58,12 @@
     transition: opacity .5s;
 
 }
+
+@media (max-width: 500px) and (orientation: portrait) { 
+    .logo.transitions {
+        margin-bottom: 20px;
+        background-size: 300px;
+        width: 120px;
+        height: 80px;
+    }
+ }

@@ -22,6 +22,7 @@
     color: #ecebe2;
     position: absolute;
     right: -50vw;
+    top: 0;
     transition: all 2s cubic-bezier(.5,0,.1,1);
 
     .contact-close {
@@ -29,6 +30,8 @@
         top: 23px;
         left: 16px;
         cursor: pointer;
+        z-index: 9;
+
     }
 
     form {
@@ -157,3 +160,20 @@
     }
 }
 
+@media (max-width: 500px) and (orientation: portrait) { 
+    .services-container {
+        
+        .cc--form {
+            width: 100vw; 
+
+            h1 {
+                padding: 0;
+                text-align: center;
+            }
+        }
+        .contact-close {
+            right: 16px;
+        }
+    }
+
+}

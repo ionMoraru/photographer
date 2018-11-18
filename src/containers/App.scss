@@ -1,5 +1,5 @@
 
-body {
+html {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -14,4 +14,15 @@ footer {
     opacity: .8;
     display: flex;
     justify-content: center;
+
+    .copyright {
+        padding: 0 20px;
+        text-align: center;
+    }
 }
+
+@media (max-width: 500px) and (orientation: portrait) { 
+    html {
+        font-size: 14px;
+    }
+ }

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import './InitialLoader.scss';
 
+
+
 export default function InitialLoader({ animate }) {
   return (
     <div className={classNames({'animate': animate}, "initial-loader")}  >
