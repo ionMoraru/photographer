@@ -14,7 +14,7 @@ export default class Contact extends Component {
   componentDidMount = () => {
     this.timer = setTimeout(() => {
       this.setState({ animate: true });
-    }, 4000);
+    }, 3000);
   };
 
   componentWillUnmount = () => {

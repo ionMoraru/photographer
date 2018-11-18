@@ -10,7 +10,7 @@ export default class Home extends Component {
   componentDidMount = async () => {
     this.timer = setTimeout(() => {
       this.setState({ animate: true })
-    }, 4000);  
+    }, 3000);  
   }
 
 

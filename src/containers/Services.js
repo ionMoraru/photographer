@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
 import ContactForm from '../components/forms/ContactForm'
 import classNames from 'classnames';
-import './Services.scss'
+import './Services.scss';
+import { FormattedMessage } from "react-intl";
+import InitialLoader from "../components/loaders/InitialLoader";
 
 export default class Services extends Component {
-//   static propTypes = {
-//     prop: PropTypes
-//   }
 
   state = {
-    reserve: false
+    reserve: false,
+    animate: false
   }
 
   onReserve = () => {
@@ -21,32 +20,46 @@ export default class Services extends Component {
 
   onCloseContact = () => {
     this.setState({
-      reserve: false
+      reserve: false,
     })
+  }
+  componentDidMount = async () => {
+    setTimeout(() => {
+      this.timer = this.setState({ animate: true });
+    }, 3000);
+  };
+
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer);
   }
 
   render() {
-    const { reserve } = this.state;
+    const { reserve, animate } = this.state;
     return (
-      <div className="services-container">
-        <div className={classNames("s-container__price-pack", {'animate__price-pack': reserve})}>
-          <div className="price-pack--header">
-            <h1>Basic</h1>
-            <span className="price">75 €</span>
+      <Fragment>
+        <InitialLoader animate={animate} />
+
+        <div className="services-container">
+          <div className={classNames("s-container__price-pack", {'animate__price-pack': reserve, 'fadeindown__price-pack': animate})}>
+            <div className="price-pack--header">
+              <h1>Basic</h1>
+              <span className="price">75 €</span>
+            </div>
+            <ul className="price-pack--body">
+              <li><FormattedMessage id="services.basic1" defaultMessage="La séance photo dure 30 minutes." /></li>
+              <li><FormattedMessage id="services.basic2" defaultMessage="100 photos retouchées au total." /></li>
+              <li><FormattedMessage id="services.basic3" defaultMessage="10 photos livrées le même jour." /></li>
+              <li><FormattedMessage id="services.basic4" defaultMessage="Une photo aimantée pour votre frigo." /></li>
+            </ul>
+            <div className="price-pack--footer">
+              <button onClick={this.onReserve}><FormattedMessage id="services.reserve" defaultMessage="Réserver" /></button>
+            </div>
+            
           </div>
-          <ul className="price-pack--body">
-            <li>Sedința foto durează 30 de minute.</li>
-            <li>100 de poze redactate în total.</li>
-            <li>10 poze livrate în aceeași zi.</li>
-            <li>O poză magnet pentru frigiderul dvs.</li>
-          </ul>
-          <div className="price-pack--footer">
-            <button onClick={this.onReserve}>Rezervă</button>
-          </div>
-          
+          <ContactForm animate={reserve} isService={true} onCloseContact={this.onCloseContact}/>
         </div>
-        <ContactForm animate={reserve} isService={true} onCloseContact={this.onCloseContact}/>
-      </div>
+      </Fragment>
     )
   }
 }

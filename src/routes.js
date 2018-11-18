@@ -7,6 +7,7 @@ import Collection from './containers/Collection';
 import Home from './containers/Home';
 import Contact from './containers/Contact';
 import Services from './containers/Services';
+import Page404 from './containers/Page404';
 
 
 const Routes = ({ collections }) => {
@@ -18,8 +19,7 @@ const Routes = ({ collections }) => {
             })}
             <Route path='/contact' component={Contact}/>
             <Route path='/services' component={Services}/>
-
-            
+            <Route component={Page404} />
         </Switch>
     )
 }

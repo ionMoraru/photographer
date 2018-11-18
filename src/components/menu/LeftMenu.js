@@ -59,10 +59,10 @@ class LeftMenu extends Component {
 
     this.timer = setTimeout(() => {
       this.setState({ showLeftMenu: true });
-    }, 2000);
+    }, 1500);
     setTimeout(() => {
       this.setState({ showLeftMenu: false });
-    }, 4000);
+    }, 3000);
   }
   
 

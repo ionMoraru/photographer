@@ -23,7 +23,7 @@ export default class App extends Component {
     
     setTimeout(() => {
       this.timer = this.setState({ animate: true });
-    }, 4000);
+    }, 3000);
 
     try {
       const response = await api.images.getImages(params);

@@ -31,6 +31,7 @@ export default class Slider extends Component {
         data={slides}
         showDots={false}
         enableNextAndPrev={false}
+        interval={6000}
         />
       </div>
     )
