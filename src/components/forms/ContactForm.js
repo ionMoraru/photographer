@@ -84,14 +84,15 @@ export default class ContactForm extends Component {
 
   render() {
     const { message, errors, loading, feedback } = this.state;
-    const { animate, hideContact, hidePhone, isService } = this.props;
-    const showCloseIcon = !hidePhone || isService;
+    const { animate, hideContact, isService, isSmallScreen } = this.props;
+    
+    const showCloseIcon = isSmallScreen || isService;
 
     return (
       <div className={classNames('cc--form', { 'fadein-left': animate, 'cc_mobile': animate, 'hide-contact': hideContact })}>
-          <i style={{ display: showCloseIcon && 'none' }} className={classNames('contact-close material-icons', { 'cc_mobile--close': animate || hideContact })} onClick={this.onCloseServiceRequest}>
+          {showCloseIcon &&<i className={classNames('contact-close material-icons', { 'cc_mobile--close': isSmallScreen })} onClick={this.onCloseServiceRequest}>
             close
-          </i>
+          </i>}
 
         <form onSubmit={this.onSubmit}>
           <ReactCSSTransitionGroup

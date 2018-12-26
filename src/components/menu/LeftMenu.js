@@ -91,6 +91,11 @@ class LeftMenu extends Component {
           {!showLeftMenu ? 'menu' : 'close'}
         </i>
         <ul className={classNames({ open: showLeftMenu }, 'lmenu__items-container')}>
+        <li>
+            <Link to="/">
+              <FormattedMessage id="nav.home" defaultMessage="Accueil" />
+            </Link>
+          </li>
           <li onClick={this.onToogleLSubmenu}>
             <FormattedMessage id="nav.collections" defaultMessage="Collections" />
             <ul className={classNames({ open: showSubmenu }, 'lmenu__submenu')}>{submenu}</ul>

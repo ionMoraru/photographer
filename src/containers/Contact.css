@@ -9,6 +9,7 @@
 }
 
 .phone--container {
+    position: relative;
     left: 0;
     width: 50vw;
     height: 40vh;
@@ -16,7 +17,6 @@
 }
 .phone--container.mobile-hide {
     left: -70vw;
-    position: relative;
     transition: all 2s cubic-bezier(.5,0,.1,1);
 }
 .phone--container h1 {

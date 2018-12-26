@@ -10,6 +10,7 @@ export default class Services extends Component {
   state = {
     reserve: false,
     animate: false,
+    isSmallScreen: false
   };
 
   onReserve = () => {
@@ -27,6 +28,14 @@ export default class Services extends Component {
     setTimeout(() => {
       this.timer = this.setState({ animate: true });
     }, 3000);
+
+    // eslint-disable-next-line
+    // eslint-disable-next-line
+    const mediaQueries = screen.width;
+
+    if (mediaQueries < 750) {
+      this.setState({ isSmallScreen: true });
+    }
   };
 
   componentWillUnmount = () => {
@@ -34,7 +43,7 @@ export default class Services extends Component {
   };
 
   render() {
-    const { reserve, animate } = this.state;
+    const { reserve, animate, isSmallScreen } = this.state;
     return (
       <Fragment>
         <InitialLoader animate={animate} />
@@ -82,7 +91,7 @@ export default class Services extends Component {
               </button>
             </div>
           </div>
-          <ContactForm animate={reserve} isService={true} onCloseContact={this.onCloseContact} />
+          <ContactForm isSmallScreen={isSmallScreen} animate={reserve} isService={true} onCloseContact={this.onCloseContact} />
         </div>
       </Fragment>
     );

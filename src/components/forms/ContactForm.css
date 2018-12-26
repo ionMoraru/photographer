@@ -160,7 +160,7 @@
 }
 
 .hide-contact {
-    left: 120vw !important;
+    right: -111vw !important;
     transition: all 2s cubic-bezier(.5,0,.1,1);
 
 }
@@ -168,7 +168,7 @@
 @media (max-width: 800px) and (orientation: portrait) { 
     .cc--form.cc_mobile{
         width: 100vw;
-        left: 0;
+        
         transition: all 2s cubic-bezier(.5,0,.1,1);
     }
     .cc--form  h1 {

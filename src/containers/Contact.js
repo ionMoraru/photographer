@@ -10,7 +10,8 @@ export default class Contact extends Component {
   state = {
     animate: false,
     hideContact: false,
-    hidePhone: false
+    hidePhoneInfo: false,
+    isSmallScreen: false
   };
 
   componentDidMount = () => {
@@ -22,7 +23,7 @@ export default class Contact extends Component {
     const mediaQueries = screen.width;
 
     if (mediaQueries < 750) {
-      this.setState({ hideContact: true });
+      this.setState({ hideContact: true, isSmallScreen: true });
     }
   };
 
@@ -31,19 +32,19 @@ export default class Contact extends Component {
   };
 
   onClickContact = () => {
-    this.setState({ hideContact: false, hidePhone: true });
+    this.setState({ hideContact: false, hidePhoneInfo: true });
   }
   onCloseContact = () => {
-    this.setState({ hideContact: true, hidePhone: false });
+    this.setState({ hideContact: true, hidePhoneInfo: false });
   }
 
   render() {
-    const { animate, hideContact, hidePhone } = this.state;
+    const { animate, hideContact, hidePhoneInfo, isSmallScreen } = this.state;
     return (
       <div>
         <InitialLoader animate={animate} />
         <div className="contact-container">
-          <div className={classNames("phone--container", { 'mobile-hide': hidePhone })}>
+          <div className={classNames("phone--container", { 'mobile-hide': hidePhoneInfo })}>
             <h1>Paris</h1>
             <div className="phone-block">
               <p>
@@ -68,7 +69,7 @@ export default class Contact extends Component {
               Contact
             </button>
           </div>
-          <ContactForm animate={animate} hideContact={hideContact} hidePhone={hidePhone} onCloseContact={this.onCloseContact} />
+          <ContactForm animate={animate} hideContact={hideContact} isSmallScreen={isSmallScreen} onCloseContact={this.onCloseContact} />
         </div>
       </div>
     );

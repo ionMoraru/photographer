@@ -1,5 +1,6 @@
 export default {
   fr: {
+    'nav.home': 'Accueil',
     'nav.collections': 'Collections',
     'nav.services': 'Services',
     'nav.about': 'À propos de moi',
@@ -25,6 +26,7 @@ export default {
     'services.reserve': 'Réserver',
   },
   ru: {
+    'nav.home': 'Home',
     'nav.collections': 'Kоллекции',
     'nav.services': 'услуги',
     'nav.about': 'Oбо мне',
@@ -50,6 +52,7 @@ export default {
     'services.reserve': 'бронировать',
   },
   ro: {
+    'nav.home': 'Acasă',
     'nav.collections': 'Colecții',
     'nav.services': 'Servicii',
     'nav.about': 'Despre mine',
