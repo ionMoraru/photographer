@@ -1,0 +1,194 @@
+.cc--form.fadein-left {
+    right: 0;
+}
+
+.cc--form.fadein-left input {
+    right: 0;
+}
+.cc--form.fadein-left textarea {
+    right: 0;
+}
+.cc--form.fadein-left label {
+    right: 0;
+}
+
+.cc--form {
+    width: 50vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ecebe2;
+    position: absolute;
+    right: -70vw;
+    top: 0;
+    transition: all 2s cubic-bezier(.5,0,.1,1);
+}
+
+.contact-close {
+    position: absolute;
+    top: 23px;
+    left: 16px;
+    cursor: pointer;
+    z-index: 9;
+
+}
+
+.cc--form form {
+    position: relative;
+    z-index: 3;
+    top: -5vh;
+}
+
+.cc--form form  h1 {
+    font-size: 1.125rem;
+    font-weight: 100;
+    color: #ecebe2;
+    padding: 0px 0 13px;
+    font-family: Bell Italic;
+    font-style: italic;
+    letter-spacing: 0;
+}
+
+.cc--form form  .feedback-message {
+    font-family: Bell Italic;
+    font-style: italic;
+    color: #b9af96;
+    font-size: 1.125rem;
+    position: relative;
+}
+
+.cc--form form  i {
+    font-size: 1.125rem;
+    top: 3px;
+    position: relative;
+    margin-right: 5px;
+}
+
+.feedback-message.fm-animate {
+    top: 0;
+    transition: all 2s cubic-bezier(.5,0,.1,1);
+}
+.feedback-enter {
+    opacity: 0.01;
+  }
+  
+.feedback-enter.feedback-enter-active {
+    opacity: 1;
+    transition: all 2s cubic-bezier(.5,0,.1,1);
+}
+
+.feedback-leave {
+    opacity: 1;
+}
+
+.feedback-leave.feedback-leave-active {
+    opacity: 0.01;
+    transition: all 2s cubic-bezier(.5,0,.1,1);
+}
+
+.error {
+    color: #c53636;
+}
+
+.cc--form form  > span {
+    color: #c53636;
+    padding: 0 0 5px 0;
+    font-size: .8rem;
+    display: block;
+    width: 40vw;
+}
+.cc--form  label {
+    position: relative;
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 3px;
+    margin: 0;
+    font-size: 12px;
+    display: block;
+    right: -18px;
+    transition: all 2s cubic-bezier(.5,0,.1,1);
+    transition-delay: 1.5s;
+}
+
+.cc--form  input, textarea {
+    position: relative;
+    display: block;
+    background: transparent;
+    border: 1px solid #ecebe2;
+    color: #ecebe2;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 12px;
+    width: 40vw;
+    max-width: 40vw;
+    right: -20px;
+    transition: right 2s cubic-bezier(.5,0,.1,1);
+    transition-delay: 1.5s;
+    margin-bottom: 15px;
+}
+
+.cc--form  input.error, textarea.error {
+    border-color: #c53636;
+    outline: #c53636 auto 5px;
+    transition: all .5s ease;
+}
+
+
+.cc--form  button {
+    margin-top: 30px;
+    border: 1px solid #ecebe2;
+    text-transform: uppercase;
+    font-size: calc(8px + .25vw);
+    letter-spacing: 2px;
+    background: none;
+    padding: 20px 40px;
+    color: #ecebe2;
+    position: absolute;
+    cursor: pointer;
+    /* width: 10vw; */
+    right: 0;
+    transition: all 2s cubic-bezier(.5,0,.1,1);
+}
+
+.cc--form  button:hover {
+    background-color: #fff;
+    color: #000;
+    transition: all .8s ease;
+}
+
+.hide-contact {
+    left: 120vw !important;
+    transition: all 2s cubic-bezier(.5,0,.1,1);
+
+}
+
+@media (max-width: 800px) and (orientation: portrait) { 
+    .cc--form.cc_mobile{
+        width: 100vw;
+        left: 0;
+        transition: all 2s cubic-bezier(.5,0,.1,1);
+    }
+    .cc--form  h1 {
+        padding: 0;
+        text-align: center;
+    }
+    .contact-close.cc_mobile--close {
+        right: 16px;
+        left: unset;
+    }
+
+    .cc--form input, textarea {
+        width: 70vw;
+        max-width: 70vw;
+    }
+
+    .cc--form button {
+        right: unset;
+    }
+    .cc--form form {
+        top: -10vh;
+    }
+}

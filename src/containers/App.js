@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { IntlProvider } from "react-intl";
-import { addLocaleData } from "react-intl";
-import fr from "react-intl/locale-data/fr";
-import ru from "react-intl/locale-data/ru";
-import ro from "react-intl/locale-data/ro";
+import React, { Component } from 'react';
+import { IntlProvider } from 'react-intl';
+import { addLocaleData } from 'react-intl';
+import fr from 'react-intl/locale-data/fr';
+import ru from 'react-intl/locale-data/ru';
+import ro from 'react-intl/locale-data/ro';
 
-import api from "../api";
-import messages from "../messages";
+import api from '../api';
+import messages from '../messages';
 
-import LeftMenu from "../components/menu/LeftMenu";
-import Routes from "../routes";
+import LeftMenu from '../components/menu/LeftMenu';
+import Routes from '../routes';
 
-import "./App.scss";
+import './App.css';
 
 addLocaleData(fr);
 addLocaleData(ru);
@@ -20,19 +20,19 @@ addLocaleData(ro);
 class App extends Component {
   state = {
     collections: [],
-    lang: "fr"
+    lang: 'fr',
   };
   componentDidMount = async () => {
     let nLanguage = navigator.language.substring(0, 2);
-    if (nLanguage !== "fr" || nLanguage !== "ro" || nLanguage !== "ru") {
-      this.setState({ lang: "fr" });
+    if (nLanguage !== 'fr' || nLanguage !== 'ro' || nLanguage !== 'ru') {
+      this.setState({ lang: 'fr' });
     }
 
     try {
       const response = await api.images.getCollectionsName();
       this.setState({ collections: response.data.collections });
     } catch (error) {
-      console.log("Get images error", error.stack);
+      console.log('Get images error', error.stack);
     }
   };
 

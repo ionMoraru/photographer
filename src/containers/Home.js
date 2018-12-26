@@ -5,27 +5,26 @@ import InitialLoader from '../components/loaders/InitialLoader';
 
 export default class Home extends Component {
   state = {
-    animate: false
-  } 
+    animate: false,
+  };
   componentDidMount = async () => {
     this.timer = setTimeout(() => {
-      this.setState({ animate: true })
-    }, 3000);  
-  }
-
+      this.setState({ animate: true });
+    }, 3000);
+  };
 
   componentWillUnmount = () => {
     clearInterval(this.timer);
-  }
+  };
 
   render() {
     const { animate } = this.state;
 
     return (
-        <div>
-          <InitialLoader animate={animate} />
-          <Slider />
-        </div>
-    )
+      <div>
+        <InitialLoader animate={animate} />
+        <Slider />
+      </div>
+    );
   }
 }

@@ -1,34 +1,34 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import { FormattedMessage } from "react-intl";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-import "./LeftMenu.scss";
+import './LeftMenu.css';
 
 class LeftMenu extends Component {
   static propTypes = {
     collections: PropTypes.array.isRequired,
     setLocale: PropTypes.func.isRequired,
     history: PropTypes.shape({
-      listen: PropTypes.func.isRequired
-    })
+      listen: PropTypes.func.isRequired,
+    }),
   };
 
   state = {
     showLeftMenu: false,
-    showSubmenu: false
+    showSubmenu: false,
   };
 
   onToogleLMenu = () => {
     this.setState({
-      showLeftMenu: !this.state.showLeftMenu
+      showLeftMenu: !this.state.showLeftMenu,
     });
   };
   onToogleLSubmenu = () => {
     this.setState({
-      showSubmenu: !this.state.showSubmenu
+      showSubmenu: !this.state.showSubmenu,
     });
   };
 
@@ -42,17 +42,15 @@ class LeftMenu extends Component {
     });
   }
 
-  handleBodyClick = (e) => {
-
-    if(this.node.contains(e.target)) {
+  handleBodyClick = e => {
+    if (this.node.contains(e.target)) {
       return;
     }
 
     this.setState(prevState => ({
       showLeftMenu: false,
     }));
-
-  }
+  };
 
   componentDidMount = () => {
     document.body.addEventListener('click', this.handleBodyClick);
@@ -63,13 +61,12 @@ class LeftMenu extends Component {
     setTimeout(() => {
       this.setState({ showLeftMenu: false });
     }, 3000);
-  }
-  
+  };
 
   componentWillUnmount = () => {
     document.body.removeEventListener('click', this.handleBodyClick);
     clearInterval(this.timer);
-  }
+  };
 
   render() {
     const { showLeftMenu, showSubmenu } = this.state;
@@ -83,27 +80,20 @@ class LeftMenu extends Component {
     });
 
     return (
-      <nav className={classNames({ open: showLeftMenu }, "p-container__lmenu")} ref={node => { this.node = node; }} onClick={this.handleOutsideClick} >
-        <i
-          className="lmenu--burger material-icons"
-          onClick={this.onToogleLMenu}
-        >
-          {!showLeftMenu ? "menu" : "close"}
+      <nav
+        className={classNames({ open: showLeftMenu }, 'p-container__lmenu')}
+        ref={node => {
+          this.node = node;
+        }}
+        onClick={this.handleOutsideClick}
+      >
+        <i className="lmenu--burger material-icons" onClick={this.onToogleLMenu}>
+          {!showLeftMenu ? 'menu' : 'close'}
         </i>
-        <ul
-          className={classNames(
-            { open: showLeftMenu },
-            "lmenu__items-container"
-          )}
-        >
+        <ul className={classNames({ open: showLeftMenu }, 'lmenu__items-container')}>
           <li onClick={this.onToogleLSubmenu}>
-            <FormattedMessage
-              id="nav.collections"
-              defaultMessage="Collections"
-            />
-            <ul className={classNames({ open: showSubmenu }, "lmenu__submenu")}>
-              {submenu}
-            </ul>
+            <FormattedMessage id="nav.collections" defaultMessage="Collections" />
+            <ul className={classNames({ open: showSubmenu }, 'lmenu__submenu')}>{submenu}</ul>
           </li>
           <li>
             <Link to="/services">
@@ -123,25 +113,16 @@ class LeftMenu extends Component {
               <FormattedMessage id="nav.contact" defaultMessage="Contact" />
             </Link>
           </li>
-          <li style={{ marginTop: "64px" }}>
-            <span
-              onClick={() => this.onChangeLang("fr")}
-              style={{ paddingRight: 10 }}
-            >
+          <li style={{ marginTop: '64px' }}>
+            <span onClick={() => this.onChangeLang('fr')} style={{ paddingRight: 10 }}>
               fr
             </span>
             <span>|</span>
-            <span
-              onClick={() => this.onChangeLang("ro")}
-              style={{ padding: "0 10px" }}
-            >
+            <span onClick={() => this.onChangeLang('ro')} style={{ padding: '0 10px' }}>
               ro
             </span>
             <span>|</span>
-            <span
-              onClick={() => this.onChangeLang("ru")}
-              style={{ paddingLeft: 10 }}
-            >
+            <span onClick={() => this.onChangeLang('ru')} style={{ paddingLeft: 10 }}>
               ru
             </span>
           </li>

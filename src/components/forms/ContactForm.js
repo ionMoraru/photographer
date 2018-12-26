@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import isEmail from "validator/lib/isEmail";
-import classNames from "classnames";
-import { FormattedMessage } from "react-intl";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import React, { Component } from 'react';
+import isEmail from 'validator/lib/isEmail';
+import classNames from 'classnames';
+import { FormattedMessage } from 'react-intl';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import api from "../../api";
+import api from '../../api';
 
-import "./ContactForm.scss";
+import './ContactForm.css';
 
 export default class ContactForm extends Component {
   state = {
     message: {
-      subject: "",
-      email: "",
-      body: ""
+      subject: '',
+      email: '',
+      body: '',
     },
     loading: false,
     errors: {},
-    feedback: ""
+    feedback: '',
   };
 
   baseState = this.state.message;
 
   onChange = e =>
     this.setState({
-      message: { ...this.state.message, [e.target.name]: e.target.value }
+      message: { ...this.state.message, [e.target.name]: e.target.value },
     });
 
   onSubmit = async e => {
@@ -47,20 +47,20 @@ export default class ContactForm extends Component {
           this.setState({
             loading: false,
             message: this.baseState,
-            feedback: "feedback.success"
+            feedback: 'feedback.success',
           });
         } else {
           this.setState({
             loading: false,
             message: this.baseState,
-            feedback: "feedback.error"
+            feedback: 'feedback.error',
           });
         }
       } catch (error) {
         this.setState({
           loading: false,
           message: this.baseState,
-          feedback: "feedback.error"
+          feedback: 'feedback.error',
         });
       }
     }
@@ -69,8 +69,8 @@ export default class ContactForm extends Component {
   validate = data => {
     const errors = {};
 
-    if (!isEmail(data.email)) errors.email = "error.email";
-    if (!data.body || data.body.length < 10) errors.body = "error.body";
+    if (!isEmail(data.email)) errors.email = 'error.email';
+    if (!data.body || data.body.length < 10) errors.body = 'error.body';
 
     return errors;
   };
@@ -80,20 +80,19 @@ export default class ContactForm extends Component {
     this.setState({
       message: this.baseState,
     });
-  }
+  };
 
   render() {
     const { message, errors, loading, feedback } = this.state;
-    const { animate, isService } = this.props;
+    const { animate, hideContact, hidePhone, isService } = this.props;
+    const showCloseIcon = !hidePhone || isService;
 
     return (
-      <div className={classNames("cc--form", { "fadein-left": animate })}>
-      { isService && <i
-          className="contact-close material-icons"
-          onClick={this.onCloseServiceRequest}
-        >
-          close
-        </i>}
+      <div className={classNames('cc--form', { 'fadein-left': animate, 'cc_mobile': animate, 'hide-contact': hideContact })}>
+          <i style={{ display: showCloseIcon && 'none' }} className={classNames('contact-close material-icons', { 'cc_mobile--close': animate || hideContact })} onClick={this.onCloseServiceRequest}>
+            close
+          </i>
+
         <form onSubmit={this.onSubmit}>
           <ReactCSSTransitionGroup
             transitionName="feedback"
@@ -102,22 +101,19 @@ export default class ContactForm extends Component {
           >
             {feedback.length > 0 && (
               <span
-                className={classNames("feedback-message", {
-                  error: feedback === "feedback.error"
+                className={classNames('feedback-message', {
+                  error: feedback === 'feedback.error',
                 })}
               >
                 <i className="lmenu--burger material-icons">
-                  {feedback === "feedback.error" ? "close" : "done"}
+                  {feedback === 'feedback.error' ? 'close' : 'done'}
                 </i>
                 <FormattedMessage id={feedback} defaultMessage={feedback} />
               </span>
             )}
           </ReactCSSTransitionGroup>
           <h1>
-            <FormattedMessage
-              id="contact.h1"
-              defaultMessage="Comment puis-je vous aider ?"
-            />
+            <FormattedMessage id="contact.h1" defaultMessage="Comment puis-je vous aider ?" />
           </h1>
           <label htmlFor="subject">
             <FormattedMessage id="contact.subject" defaultMessage="Sujet" />
@@ -130,10 +126,7 @@ export default class ContactForm extends Component {
             value={message.name}
           />
           <label htmlFor="email" required>
-            <FormattedMessage
-              id="contact.email"
-              defaultMessage="Adresse email"
-            />
+            <FormattedMessage id="contact.email" defaultMessage="Adresse email" />
           </label>
           <input
             className={classNames({ error: !!errors.email })}
@@ -152,10 +145,7 @@ export default class ContactForm extends Component {
             </span>
           )}
           <label htmlFor="description">
-            <FormattedMessage
-              id="contact.body"
-              defaultMessage="Votre demande"
-            />
+            <FormattedMessage id="contact.body" defaultMessage="Votre demande" />
           </label>
           <textarea
             className={classNames({ error: !!errors.body })}
