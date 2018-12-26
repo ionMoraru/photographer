@@ -22,7 +22,7 @@ export default class Contact extends Component {
     // eslint-disable-next-line
     const mediaQueries = screen.width;
 
-    if (mediaQueries < 750) {
+    if (mediaQueries < 800) {
       this.setState({ hideContact: true, isSmallScreen: true });
     }
   };

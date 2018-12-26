@@ -33,7 +33,7 @@ export default class Services extends Component {
     // eslint-disable-next-line
     const mediaQueries = screen.width;
 
-    if (mediaQueries < 750) {
+    if (mediaQueries < 800) {
       this.setState({ isSmallScreen: true });
     }
   };
