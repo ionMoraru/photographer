@@ -132,6 +132,10 @@ class LeftMenu extends Component {
             </span>
           </li>
         </ul>
+        <ul className={classNames({ open: showLeftMenu }, "social-media")}>
+          <li><a className="fa fa-facebook-square" href="https://www.facebook.com/johnny.jo.9862"><span>Facebook</span></a></li>
+          <li><a className="fa fa-instagram" href="https://www.instagram.com/johnny_._jo/"><span>Instagram</span></a></li>
+        </ul>
       </nav>
     );
   }
