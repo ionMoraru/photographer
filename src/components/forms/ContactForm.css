@@ -187,7 +187,9 @@
 
     .cc--form button {
         right: unset;
+        margin-top: 15px;
     }
+    
     .cc--form form {
         top: -10vh;
     }
