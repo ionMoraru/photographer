@@ -10,6 +10,7 @@
     position: fixed;
 }
 
+
 .animate__price-pack {
     margin-left: -50vw;
     transition: all 1s cubic-bezier(.5,0,.1,1);
@@ -133,7 +134,14 @@
     .animate__price-pack {
         margin-left: -200vw;
     }
+    .services-container .contact-close{
+    right: 16px;
+}
 
+ }
+
+ .price-pack--header h1 span {
+     font-size: 1.5rem;
  }
 @media (min-width: 600px) and (max-width: 1200px) and (orientation: portrait) { 
 

@@ -19,10 +19,11 @@ export default {
     'feedback.success': 'Merci pour votre message, nous vous contacterons bientôt.',
     'feedback.error':
       "Une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer ultérieurement ou essayer de me contacter par mail ou téléphone.",
-    'services.basic1': 'La séance photo dure 30 minutes.',
-    'services.basic2': '100 photos retouchées au total.',
-    'services.basic3': '10 photos livrées le même jour.',
-    'services.basic4': 'Une photo aimantée pour votre frigo.',
+    'services.basic1': 'La séance photo dure 1h30.',
+    'services.basic2': 'Entre 50 et 75 images traitées.',
+    'services.basic3': 'Photos livrées en format digital pendant 4 semaines.',
+    'services.basic4': 'Le lieu de la séance photo reste à votre choix.',
+    'services.basic5': 'Séance photo',
     'services.reserve': 'Réserver',
   },
   ru: {
@@ -45,10 +46,11 @@ export default {
     'feedback.success': 'Благодарим вас за сообщение, мы свяжемся с вами в ближайшее время.',
     'feedback.error':
       'При отправке запроса произошла ошибка. Повторите попытку позже или попробуйте связаться со мной по электронной почте или по телефону.',
-    'services.basic1': 'Фотосессия занимает 30 минут.',
-    'services.basic2': '100 ретушированных фотографий.',
-    'services.basic3': '10 фотографий, вы получите в тот же день.',
-    'services.basic4': 'Магнитная картинка для вашего холодильника.',
+    'services.basic1': 'Фотосессия длится полтора часа.',
+    'services.basic2': 'От 50 до 75 обработанных фотографий.',
+    'services.basic3': 'Фотографии доставлены в электронном виде за 4 недели.',
+    'services.basic4': 'Место фотосессии остается на ваше усмотрение.',
+    'services.basic5': 'Фотосессия',
     'services.reserve': 'бронировать',
   },
   ro: {
@@ -71,10 +73,11 @@ export default {
     'feedback.success': 'Vă mulțumim pentru mesajul dvs., vă vom contacta în curând.',
     'feedback.error':
       'A apărut o eroare la trimiterea solicitării dvs. Încercați din nou mai târziu sau încercați să mă contactați prin e-mail sau telefon.',
-    'services.basic1': 'Sedința foto durează 30 de minute.',
-    'services.basic2': '100 de poze redactate în total.',
-    'services.basic3': '10 poze livrate în aceeași zi.',
-    'services.basic4': 'O poză magnet pentru frigiderul dvs.',
+    'services.basic1': 'Sedința foto durează o ora jumate.',
+    'services.basic2': 'Între 50 și 75 de poze prelucrate.',
+    'services.basic3': 'Fotografii livrate în format electronic în 4 săptămâni.',
+    'services.basic4': 'Locul sesiunii foto rămâne la alegerea dvs.',
+    'services.basic5': 'Ședința foto',
     'services.reserve': 'Rezervă',
   },
 };

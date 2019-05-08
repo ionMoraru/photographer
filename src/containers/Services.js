@@ -56,34 +56,39 @@ export default class Services extends Component {
             })}
           >
             <div className="price-pack--header">
-              <h1>Basic</h1>
-              <span className="price">75 €</span>
+              <h1><FormattedMessage
+              style={{ fontSize: '1.5rem'}}
+                  id="services.basic5"
+                  defaultMessage="La séance photo dure 1h30."
+                /></h1>
+              <span className="price">120 €</span>
             </div>
             <ul className="price-pack--body">
               <li>
                 <FormattedMessage
                   id="services.basic1"
-                  defaultMessage="La séance photo dure 30 minutes."
-                />
-              </li>
-              <li>
-                <FormattedMessage
-                  id="services.basic2"
-                  defaultMessage="100 photos retouchées au total."
-                />
-              </li>
-              <li>
-                <FormattedMessage
-                  id="services.basic3"
-                  defaultMessage="10 photos livrées le même jour."
+                  defaultMessage="La séance photo dure 1h30."
                 />
               </li>
               <li>
                 <FormattedMessage
                   id="services.basic4"
-                  defaultMessage="Une photo aimantée pour votre frigo."
+                  defaultMessage="Le lieu de la séance photo reste à votre choix."
                 />
               </li>
+              <li>
+                <FormattedMessage
+                  id="services.basic2"
+                  defaultMessage="Entre 50 et 75 images traitées."
+                />
+              </li>
+              <li>
+                <FormattedMessage
+                  id="services.basic3"
+                  defaultMessage="Photos livrées en format digital pendant 4 semaines."
+                />
+              </li>
+              
             </ul>
             <div className="price-pack--footer">
               <button onClick={this.onReserve}>
@@ -91,6 +96,7 @@ export default class Services extends Component {
               </button>
             </div>
           </div>
+          
           <ContactForm isSmallScreen={isSmallScreen} animate={reserve} isService={true} onCloseContact={this.onCloseContact} />
         </div>
       </Fragment>
